@@ -2,7 +2,7 @@
 
 include( 'includes/database.php' );
 include( 'includes/config.php' );
-include( 'includes/function.php' );
+include( 'includes/functions.php' );
 
 secure();
 
@@ -20,7 +20,7 @@ if( isset( $_POST['CompanyName'] ) )
   if( $_POST['CompanyName'] )
   {
     
-    $query = 'UPDATE work experience SET
+    $query = 'UPDATE workExperience SET
       CompanyName = "'.mysqli_real_escape_string( $connect, $_POST['CompanyName'] ).'",
       Position = "'.mysqli_real_escape_string( $connect, $_POST['Position'] ).'",
       Responsibility = "'.mysqli_real_escape_string( $connect, $_POST['Responsibility'] ).'",
@@ -44,7 +44,7 @@ if( isset( $_GET['id'] ) )
 {
   
   $query = 'SELECT *
-    FROM workexperience
+    FROM workExperience
     WHERE id = '.$_GET['id'].'
     LIMIT 1';
   $result = mysqli_query( $connect, $query );

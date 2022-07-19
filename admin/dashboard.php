@@ -12,6 +12,16 @@ include('includes/header.php');
 
 <ul id="dashboard">
   <li>
+    <a href="contentblogs.php">
+      Manage Content Blogs
+    </a>
+  </li>
+  <li>
+    <a href="education.php">
+      Manage Education
+    </a>
+  </li>
+  <li>
     <a href="projects.php">
       Manage Projects
     </a>
@@ -27,10 +37,11 @@ include('includes/header.php');
     </a>
   </li>
   <li>
-    <a href="logout.php">
-      Logout
+    <a href="workexperience.php">
+      Manage Work experience
     </a>
   </li>
+
 </ul>
 
 <?php

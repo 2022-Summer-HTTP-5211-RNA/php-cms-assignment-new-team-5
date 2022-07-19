@@ -2,14 +2,14 @@
 
 include( 'includes/database.php' );
 include( 'includes/config.php' );
-include( 'includes/function.php' );
+include( 'includes/functions.php' );
 
 secure();
 
 if( isset( $_GET['delete'] ) )
 {
   
-  $query = 'DELETE FROM workexperience
+  $query = 'DELETE FROM workExperience
     WHERE id = '.$_GET['delete'].'
     LIMIT 1';
   mysqli_query( $connect, $query );
@@ -24,7 +24,7 @@ if( isset( $_GET['delete'] ) )
 include( 'includes/header.php' );
 
 $query = 'SELECT *
-  FROM workexperience
+  FROM workExperience
   ORDER BY StartDate DESC';
 $result = mysqli_query( $connect, $query );
 

@@ -2,7 +2,7 @@
 
 include( 'includes/database.php' );
 include( 'includes/config.php' );
-include( 'includes/function.php' );
+include( 'includes/functions.php' );
 
 secure();
 
@@ -12,22 +12,24 @@ if( isset( $_POST['CompanyName'] ) )
   if( $_POST['CompanyName'] )
   {
     
-    $query = 'INSERT INTO work experience (
+    $query = 'INSERT INTO workExperience (
         CompanyName,
-        Position,
-        Responsibility,
         StartDate,
-        EndDate
+        EndDate,
+        Position,
+        Responsibility
+
       ) VALUES (
          "'.mysqli_real_escape_string( $connect, $_POST['CompanyName'] ).'",
-         "'.mysqli_real_escape_string( $connect, $_POST['Position'] ).'",
-         "'.mysqli_real_escape_string( $connect, $_POST['Responsibility'] ).'",
          "'.mysqli_real_escape_string( $connect, $_POST['StartDate'] ).'",
-         "'.mysqli_real_escape_string( $connect, $_POST['EndDate'] ).'"
+         "'.mysqli_real_escape_string( $connect, $_POST['EndDate'] ).'",
+         "'.mysqli_real_escape_string( $connect, $_POST['Position'] ).'",
+         "'.mysqli_real_escape_string( $connect, $_POST['Responsibility'] ).'"
+
       )';
     mysqli_query( $connect, $query );
     
-    set_message( 'Workexperience has been added' );
+    set_message( 'Work Experience has been added' );
     
   }
   
