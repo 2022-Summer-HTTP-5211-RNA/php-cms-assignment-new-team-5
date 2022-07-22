@@ -18,7 +18,7 @@ switch( $_GET['type'] )
   case 'project':
     
     $query = 'SELECT photo 
-      FROM projects
+      FROM Projects
       WHERE id = '.$_GET['id'].'
       LIMIT 1';
     $result = mysqli_query( $connect, $query );
@@ -28,6 +28,31 @@ switch( $_GET['type'] )
     
     break;
       
+  case 'contentblog':
+    
+    $query = 'SELECT photo 
+      FROM contentblogs
+      WHERE id = '.$_GET['id'].'
+      LIMIT 1';
+    $result = mysqli_query( $connect, $query );
+    $record = mysqli_fetch_assoc( $result );
+
+    if( !$record['photo'] ) $record['photo'] = $camera;
+    
+    break;
+
+  case 'skill':
+  
+    $query = 'SELECT photo 
+      FROM skills
+      WHERE id = '.$_GET['id'].'
+      LIMIT 1';
+    $result = mysqli_query( $connect, $query );
+    $record = mysqli_fetch_assoc( $result );
+
+    if( !$record['image'] ) $record['image'] = $camera;
+    
+    break;
 }
 
 include 'includes/wideimage/WideImage.php';

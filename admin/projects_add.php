@@ -70,12 +70,12 @@ include( 'includes/header.php' );
   
   <br>
   
-  <label for="type">Type:</label>
+  <label for="Type">Type:</label>
   <?php
   
-  $values = array( 'Website', 'Graphic Design' );
+  $values = array( 'Website', 'UX/UI Design' );
   
-  echo '<select name="Type" id="Type">';
+  echo '<select name="Type" id="type">';
   foreach( $values as $key => $value )
   {
     echo '<option value="'.$value.'"';

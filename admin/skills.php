@@ -32,20 +32,26 @@
 
 <table>
   <tr>
+    <th></th>
     <th align="center">ID</th>
     <th align="left">Name</th>
     <th align="center">Score</th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
   <?php while($record = mysqli_fetch_assoc($result)): ?>
     <tr>
+    <td align="center">
+        <img src="image.php?type=skill&id=<?php echo $record['id']; ?>&width=80&height=80&format=inside">
+      </td>
+    
       <td align="center">
         <?php echo $record['id']; ?>
       </td>
       <td align="left"><?php echo $record['Name']; ?></td>
       <td align="center"><?php echo $record['score']; ?></td>
-      
+      <td align="center"><a href="skills_photo.php?id=<?php echo $record['id']; ?>">Photo</i></a></td>
       <td align="center">
         <a href="skills_edit.php?id=<?php echo $record['id']; ?>">Edit</a>
       </td>
