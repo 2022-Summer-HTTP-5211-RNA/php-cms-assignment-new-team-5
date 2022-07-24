@@ -9,7 +9,7 @@ secure();
 if( !isset( $_GET['id'] ) )
 {
   
-  header( 'Location: contentblogs.php' );
+  header( 'Location: contenblogs.php' );
   die();
   
 }

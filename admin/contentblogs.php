@@ -9,12 +9,12 @@ secure();
 if( isset( $_GET['delete'] ) )
 {
   
-  $query = 'DELETE FROM contentblogs
+  $query = 'DELETE FROM contenblogs
     WHERE id = '.$_GET['delete'].'
     LIMIT 1';
   mysqli_query( $connect, $query );
     
-  set_message( 'Contentblog has been deleted' );
+  set_message( 'Content Blog has been deleted' );
   
   header( 'Location: contentblogs.php' );
   die();
@@ -24,7 +24,7 @@ if( isset( $_GET['delete'] ) )
 include( 'includes/header.php' );
 
 $query = 'SELECT *
-  FROM contentblogs
+  FROM contenblogs
   ORDER BY title DESC';
 $result = mysqli_query( $connect, $query );
 
@@ -39,9 +39,8 @@ $result = mysqli_query( $connect, $query );
     <th align="left">Title</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
-  <?php while( $record = mysqli_fetch_assoc( $result ) ): ?>
+  <?php while($record = mysqli_fetch_assoc( $result)): ?>
     <tr>
       <td align="center">
         <img src="image.php?type=contentblog&id=<?php echo $record['id']; ?>&width=300&height=300&format=inside">
@@ -51,16 +50,16 @@ $result = mysqli_query( $connect, $query );
         <?php echo htmlentities( $record['title'] ); ?>
         <small><?php echo $record['content']; ?></small>
       </td>
-      <td align="center"><a href="contentblogs_photo.php?id=<?php echo $record['id']; ?>">Photo</i></a></td>
-      <td align="center"><a href="contentblogs_edit.php?id=<?php echo $record['id']; ?>">Edit</i></a></td>
+      <td align="center"><a href="contentblogs_photo.php?id=<?php echo $record['id']; ?>">Photo</a></td>
+      <td align="center"><a href="contentblogs_edit.php?id=<?php echo $record['id']; ?>">Edit</a></td>
       <td align="center">
-        <a href="contentblogs.php?delete=<?php echo $record['id']; ?>" onclick="javascript:confirm('Are you sure you want to delete this contentblog?');">Delete</i></a>
+        <a href="contentblogs.php?delete=<?php echo $record['id']; ?>" onclick="javascript:confirm('Are you sure you want to delete this contentblog?');">Delete</a>
       </td>
     </tr>
   <?php endwhile; ?>
 </table>
 
-<p><a href="contentblogs_add.php"><i class="fas fa-plus-square"></i> Add Contentblog</a></p>
+<p><a href="contentblogs_add.php"><i class="fas fa-plus-square"></i> Add Content Blog</a></p>
 
 
 <?php

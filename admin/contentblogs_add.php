@@ -12,7 +12,7 @@ if( isset( $_POST['title'] ) )
   if( $_POST['title'] and $_POST['content'] )
   {
     
-    $query = 'INSERT INTO contentblogs (
+    $query = 'INSERT INTO contenblogs (
         title,
         content
       ) VALUES (
